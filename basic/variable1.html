@@ -21,6 +21,27 @@
       let a = 5; // Uncaught SyntaxError: Identifier 'a' has already been declared
 
       const PI = 3.14;
+
+      let d = "abc";
+      typeof d; // string
+
+      e = 45;
+      typeof e; // number
+
+      var f;
+      typeof f; // undefined >> 값을 지정해야 타입이 생긴다
+
+      var h = null;
+      typeof h; // object
+
+      5 == 3; // false
+      "3" == 3; // true >> Java에서는 string == int 불가하지만 JS는 통용. 순수 값만 비교
+      "3" === 3; // false >> ===은 값과 타입 모두 비교
+
+      "52" + 273; // 숫자와 문자 사이의 플러스(+) 기호는 연결의 의미 '52273'
+
+      273 * "3"; // 숫자와 문자 곱셈 연산 가능 819
+      273 / "3"; // 숫자와 문자 나눗셈 연산 가능 91
     </script>
   </body>
 </html>

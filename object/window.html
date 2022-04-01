@@ -1,0 +1,36 @@
+<!--
+    Window 객체는 HTML DOM을 다룰 수 있는 객체이므로 아주 중요
+    DOM (Document Object Model) : 웹 페이지가 로드되면 브라우저가 생성하는 객체. 태그들을 객체화하는 작업
+    Root element : <html>
+         element : <head>, <body>
+                 : <meta>, <title>
+    DOM 형태를 유지하기 때문에 JavaScript에서 HTML 요소, 속성, CSS style 변경이 가능함
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>window 객체</title>
+  </head>
+  <body>
+    <script>
+      window.document.write(); // window 생략하고 document.write()로 씀
+
+      // Window Size
+      document.write(window.innerWidth + "<br>");
+      document.write(window.innerHeight);
+
+      // Window Method (Event)
+      window.open(
+        "./child1.html",
+        "",
+        "width=420, height=500, left=300, top=50, status=no"
+      ); // 새 창
+      window.close(); // 창 닫기
+      window.moveTo();
+      window.resizeTo();
+    </script>
+  </body>
+</html>

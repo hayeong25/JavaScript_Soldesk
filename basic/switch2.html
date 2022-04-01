@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>switch ~ case</title>
+  </head>
+  <body>
+    <!-- 요일 출력하는 프로그램 -->
+    <p id="exam"></p>
+
+    <script>
+      var date = new Date();
+
+      // getDay() : 현재 요일을 int로 return (일(0), 월(1), 화(2), 수(3), 목(4), 금(5), 토(6))
+      console.log(date.getDay());
+
+      let day = "";
+      switch (date.getDay()) {
+        case 0:
+          day = "일요일";
+        case 1:
+          day = "월요일";
+        case 2:
+          day = "화요일";
+        case 3:
+          day = "수요일";
+        case 4:
+          day = "목요일";
+        case 5:
+          day = "금요일";
+        case 6:
+          day = "토요일";
+      }
+
+      // script로 작성한 것을 body 안에 보여주기
+      // document.getElementById().innerHTML : 현재 문서 안에(document) 주어진 문자열과 일치하는 id 속성을 가진 요소를 찾고, 이를 나타내는 Element 객체를 HTML 형태로 반환
+      document.getElementById("exam").innerHTML = "오늘은 " + day + "입니다.";
+    </script>
+  </body>
+</html>

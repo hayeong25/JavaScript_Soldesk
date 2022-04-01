@@ -1,0 +1,27 @@
+<!--
+    document.getElementById() : element에 id 값이 존재할 때 사용
+    innerHTML, innerText : element의 text 값 변경 (태그를 사용할 수 있는지 없는지의 차이)
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header1" onclick="valueChange()">Header1</h1>
+    <h1 id="header2">Header2</h1>
+    <script>
+      let h1 = document.getElementById("header1");
+      console.log(h1);
+
+      function valueChange() {
+        h1.innerHTML = "Header3";
+        // h1.innerHTML = "<i>Header3</i>"; >> 이탤릭체로 변경 O
+        // h1.innerText = "<i>Header3</i>"; >> 이탤릭체로 변경 X
+      }
+    </script>
+  </body>
+</html>

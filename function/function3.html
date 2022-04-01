@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function</title>
+  </head>
+  <body>
+    <script>
+      test(1, 2); // 값을 받지 못 한 매개변수는 undefined로 출력
+
+      // 변수에 값이 할당되지 않을 경우의 초기값 설정
+      c = c || 52; // c 값이 들어오면 c로 하고, 아니면 52로 하라
+      d = d || 273; // d 값이 들어오면 d로 하고, 아니면 273으로 하라
+
+      function test(a, b, c, d) {
+        document.write("a : " + a + ", b : " + b + ", c : " + c + ", d : ");
+      }
+    </script>
+  </body>
+</html>

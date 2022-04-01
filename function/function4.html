@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function</title>
+  </head>
+  <body>
+    <!--
+        익명 함수
+        hoisting 불가
+        함수명이 있든 없든 상수에 대입될 때는 함수가 정의된 후에만 호출 가능
+    -->
+    <script>
+      let sum = 0;
+
+      // output(); >> hoisting 불가
+      const output = function () {
+        for (var i = 1; i < 11; i++) {
+          sum += i;
+        }
+        document.write(sum);
+      };
+
+      output();
+
+      const result = function add(a, b) {
+        return a + b;
+      };
+
+      document.write(result(3, 5));
+    </script>
+  </body>
+</html>

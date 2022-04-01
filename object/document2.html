@@ -1,0 +1,55 @@
+<!--
+    document.getElementsByName() : element에 name이 존재할 때 사용
+    document.getElementsByTagName() : tag로 요소 가져오기
+    document.getElementsByClassName() : tag 클래스명으로 요소 가져오기
+        Element's' : s 붙으면 List 형태
+            getElementsByName() : NodeList
+            getElementsByTagName : HTMLCollection
+            getElementsByClassName : HTMLCollection
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 name="header1" onclick="valueChange()">Header1</h1>
+
+    <ul>
+      <li>List Item1</li>
+      <li>List Item2</li>
+      <li>List Item3</li>
+      <li>List Item4</li>
+    </ul>
+
+    <h2 class="header2">Header2</h2>
+
+    <script>
+      // h1 가져오기
+      let h1 = document.getElementsByName("header1");
+      console.log(h1[0].innerHTML);
+      console.log(h1[0]);
+
+      function valueChange() {
+        h1.innerHTML = "Header3";
+      }
+    </script>
+
+    <script>
+      // ul 가져오기
+      let ul = document.getElementsByTagName("ul");
+      console.log(ul);
+      console.log(ul[0]);
+    </script>
+
+    <script>
+      // h2 가져오기
+      let h2 = document.getElementsByClassName("header2");
+      console.log(h2);
+      console.log(h2[0]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arrays</title>
+  </head>
+  <body>
+    <!--
+          배열 선언하기
+          1) const 배열명 = [요소1, 요소2, 요소3, ...];
+          2) const 배열명 = [];
+            배열명[0] = 요소1;
+            배열명[1] = 요소2;
+            배열명[2] = 요소3; ...
+          3) const 배열명 = new Array(요소1, 요소2, 요소3, ...);
+      -->
+    <script>
+      //   const cars = ["Saab", "Volvo", "BMW"];
+
+      //   const cars = [];
+      //   cars[0] = "Saab";
+      //   cars[1] = "Volvo";
+      //   cars[2] = "BMW";
+
+      //   const cars = new Array("Saab", "Volvo", "BMW");
+
+      // 배열 요소는 같은 타입일 필요는 없음
+      const arr = [35, "a", 65, true, {}];
+
+      // 배열 요소 추가
+      const car = ["Saab", "Volvo", "BMW"];
+      car[3] = "Audi"; // Java와 달리 배열 범위 넘어도 요소 추가 가능
+
+      const cars = new Array("Saab", "Volvo", "BMW");
+      cars1.push("Audi"); // push() : const 배열 요소 추가
+    </script>
+  </body>
+</html>

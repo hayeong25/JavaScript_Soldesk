@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function</title>
+  </head>
+  <body>
+    <!--
+        function(함수)
+        - return 타입 없음
+        - 매개변수도 타입 없이 변수명만 나열
+        - hoisting : 위에서부터 아래로 해석되지만, 함수를 먼저 호출하고 나중에 정의하는 것 가능
+    -->
+    <script>
+      function myFunction(p1, p2) {
+        return p1 * p2;
+      }
+
+      let result = myFunction(4, 3);
+
+      document.write(result);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>string</title>
+  </head>
+  <body>
+    <!-- 이메일을 입력 받아 @ 기호가 포함되었는지 확인한 후 @ 기호가 포함될 때까지 입력받기 반복 -->
+    <script>
+      function info() {
+        while (true) {
+          let email = prompt("이메일을 입력해주세요");
+          if (email.indexOf("@") >= 0) {
+            document.write("email : " + email);
+            break;
+          }
+          alert("이메일 형식을 확인해주세요");
+        }
+      }
+
+      info();
+    </script>
+  </body>
+</html>

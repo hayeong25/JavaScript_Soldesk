@@ -1,0 +1,23 @@
+<!-- onclick(), onload() -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body onload="loadEvent()">
+    <input type="radio" name="color" onclick="changeColor('blue')" />파란색
+    <input type="radio" name="color" onclick="changeColor('green')" />녹색
+    <script>
+      function loadEvent() {
+        document.body.style.backgroundColor = "red";
+      }
+      function changeColor(color) {
+        // 문서 배경색 color로 변경
+        document.body.style.backgroundColor = color;
+      }
+    </script>
+  </body>
+</html>

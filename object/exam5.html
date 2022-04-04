@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3>숫자 맞히기 게임</h3>
+    <p>
+      이 게임은 컴퓨터가 생성한 숫자를 맞히는 게임입니다<br />
+      숫자는 1부터 100 사이의 수입니다
+    </p>
+    <div>
+      <label>숫자</label>
+      <input type="text" name="num1" id="num1" size="5" />
+      <button type="button" onclick="guess()">확인</button>
+    </div>
+    <div>
+      <label>추측횟수</label>
+      <input type="text" name="count" id="count" size="5" readonly />
+    </div>
+    <div>
+      <label>힌트</label>
+      <input type="text" name="hint" id="hint" readonly />
+    </div>
+    <script>
+      // 컴퓨터 숫자 생성 (1 ~ 100)
+      const com = Math.floor(Math.random() * 100) + 1;
+
+      // 추측 횟수 변수 선언
+      let count = 0;
+
+      function guess() {
+        let num = document.querySelector("#num1").value; // String
+
+        if (com == num) {
+          // === 은 타입까지 비교하기 때문에 number와 String은 별개
+          alert("정답입니다!");
+          document.querySelector("#hint").value = "";
+        } else {
+          alert("틀렸습니다");
+          document.querySelector("#count").value = ++count;
+          if (com > num) {
+            document.querySelector("#hint").value = "up";
+          } else {
+            document.querySelector("#hint").value = "down";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

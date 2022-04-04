@@ -1,0 +1,59 @@
+<!-- form Script -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- action=""이면 자기 자신 페이지로 이동 -->
+    <form action="">
+      <div>
+        <label>이름</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div>
+        <label>비밀번호</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label>나이</label>
+        <input type="text" name="age" id="age" />
+      </div>
+      <div>
+        <button type="submit" onclick="checkForm()">전송</button>
+        <button type="reset">취소</button>
+      </div>
+    </form>
+    <script>
+      function checkForm() {
+        // 태그가 가지고 있는 기본 동작 제어
+        event.preventDefault();
+
+        // 사용자의 입력 값(이름, 비밀번호, 나이) 가져오기
+        let name = document.querySelector("#name");
+        let password = document.querySelector("#password");
+        let age = document.querySelector("#age");
+
+        // 각 요소의 값이 없으면 경고창 & 다시 입력하도록 focus
+        if (name.value == "") {
+          alert("이름을 입력하세요");
+          name.focus();
+          return;
+        } else if (password.value == "") {
+          alert("비밀번호를 입력하세요");
+          password.focus();
+          return;
+        } else if (age.value == "") {
+          alert("나이를 입력하세요");
+          age.focus();
+          return;
+        }
+      }
+
+      document.querySelector("form").submit();
+    </script>
+  </body>
+</html>

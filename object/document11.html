@@ -1,0 +1,23 @@
+<!-- JavaScript로 요소 속성 변경 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="header" onclick="change()">Header1</h1>
+    <script>
+      function change() {
+        let h1 = document.querySelector("#header");
+
+        // h1 태그의 style 변경
+        h1.style.color = "blue";
+        h1.style.border = "1px solid red";
+        h1.style.padding = "10px";
+      }
+    </script>
+  </body>
+</html>

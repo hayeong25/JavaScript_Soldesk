@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="ex">여기는 div 영역입니다</div>
+    <p>
+      <a href="#" onclick="get()">div 요소 내용 출력하기</a>
+    </p>
+    <p>
+      <a href="#" onclick="set('변경되었습니다')">div 요소 내용 변경하기</a>
+    </p>
+    <script>
+      let div = document.querySelector("#ex");
+
+      function get() {
+        // div 영역 가져와서 화면에 출력 (alert)
+        alert(div.innerHTML);
+      }
+
+      function set(value) {
+        // div 영역 안의 내용을 value로 변경
+        div.innerHTML = value;
+        alert(div.innerHTML);
+      }
+    </script>
+  </body>
+</html>

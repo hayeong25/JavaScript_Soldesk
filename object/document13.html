@@ -1,0 +1,31 @@
+<!--
+    form 태그 JavaScript
+    form 태그 안의 요소 값을 가져올 때는 value 속성 사용
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <label for="">이름</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div>
+        <button type="button" onclick="process()">보내기</button>
+      </div>
+    </form>
+    <script>
+      function process() {
+        // name input 요소를 가져온 후 사용자의 입력값 확인
+        let name = document.querySelector("#name");
+        alert("name : " + name.value);
+      }
+    </script>
+  </body>
+</html>

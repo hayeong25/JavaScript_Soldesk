@@ -1,0 +1,24 @@
+<!-- JavaScript로 요소 삭제 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 onclick="h1_click()" class="header">Header1</h1>
+    <h2>Header2</h2>
+    <script>
+      function h1_click() {
+        // 삭제할 요소 가져오기
+        let h1 = document.querySelector("h1");
+        h1.remove(); // 소스는 remove 되지 않고 동적으로만 remove 되는 것
+
+        // h1 자체가 아니라 class 속성만 제거할 경우
+        h1.removeAttribute("class"); // 브라우저 F12 Element 창에서 확인 가능
+      }
+    </script>
+  </body>
+</html>

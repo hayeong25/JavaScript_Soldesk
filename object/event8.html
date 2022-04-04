@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table id="outside">
+      <tr>
+        <td id="t1">one</td>
+      </tr>
+      <tr>
+        <td id="t2">two</td>
+      </tr>
+    </table>
+
+    <script>
+      // table 클릭 시 t2 요소의 text 값이 three이면 two로 변경, two이면 three로 변경
+      function modifyText() {
+        const t2 = document.getElementById("t2");
+        if (t2.innerHTML == "three") {
+          t2.innerHTML = "two";
+        } else {
+          t2.innerHTML = "three";
+        }
+      }
+
+      document.getElementById("outsite").addEventListener("click", modifyText);
+    </script>
+  </body>
+</html>

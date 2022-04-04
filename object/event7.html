@@ -1,0 +1,47 @@
+<!--
+    querySelector() : 선택자에 해당하는 첫 번째 element만 가져옴
+    querySelectorAll() : 해당되는 모든 element를 NodeList 형태로 가져옴
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="fruits" onchange="fruitSelect()">
+      <option value="사과">사과</option>
+      <option value="오렌지">오렌지</option>
+      <option value="딸기">딸기</option>
+      <option value="바나나">바나나</option>
+      <option value="망고">망고</option>
+    </select>
+
+    <div>
+      성별
+      <input type="radio" name="gender" value="남" />남자
+      <input type="radio" name="gender" value="여" />여자
+    </div>
+
+    <script>
+      const fruits = document.querySelectorAll("[name='fruits']");
+      fruits.addEventListener("change", fruitSelect);
+
+      const genderElement = document.querySelector("[name='gender']");
+      genderElement.forEach((element) => {
+        console.log(element);
+        element.addEventListener("change", gender);
+      });
+
+      function fruitSelect(e) {
+        alert(e.target.value);
+      }
+
+      function gender(e) {
+        alert(e.target.value);
+      }
+    </script>
+  </body>
+</html>

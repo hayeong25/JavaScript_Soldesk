@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="fruits" onchange="fruitSelect()">
+      <option value="사과">사과</option>
+      <option value="오렌지">오렌지</option>
+      <option value="딸기">딸기</option>
+      <option value="바나나">바나나</option>
+      <option value="망고">망고</option>
+    </select>
+
+    <div>
+      성별
+      <input
+        type="radio"
+        name="gender"
+        value="남"
+        onchange="gender()"
+        checked
+      />남자
+      <input type="radio" name="gender" value="여" onchange="gender()" />여자
+    </div>
+
+    <script>
+      function fruitSelect(value) {
+        // select에서 선택한 값 보여주기 (alert)
+        alert(value);
+      }
+
+      function gender() {
+        // radio에서 선택된 checked 값 보여주기 (alert)
+        alert(document.querySelector("[name='gender']:checked").value);
+      }
+    </script>
+  </body>
+</html>

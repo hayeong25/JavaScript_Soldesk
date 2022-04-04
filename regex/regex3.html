@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>
+      031-873-5896 <br />
+      010-1273-4568 <br />
+      070-4568-1256 <br />
+      070-1568-56789
+    </p>
+    <p id="resultt" style="color: red"></p>
+    <script>
+      let p = document.querySelector("p").innerText;
+
+      // 찾은 문자열을 result 영역에 보여주기
+      /*
+        숫자 3자리 - 숫자 3~4자리 - 숫자 4자리
+        /\d{2,3}-\d{3,4}-\d{4}/gm
+        /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}$/gm
+      */
+      let result = document.getElementById("result");
+      result.innerText = p.match(/^d{2,3-\d{3,4}}-\d{4}$/gm);
+    </script>
+  </body>
+</html>

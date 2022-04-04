@@ -1,0 +1,59 @@
+<!--
+    정규표현식
+    ner RegExp() 객체 생성해 사용하거나 /정규식/
+
+    메소드
+    exec() : 일치하는 경우 일치하는 문자열 리턴, 없으면 리턴값 없음
+    test() : 일치하는 경우 true, 아니면 false
+    match() : exec()와 동일
+    search() : 일치하는 경우 시작 위치 리턴, 없으면 -1
+    replace() : 찾으면 주어진 문자열로 변경
+    split() : 찾으면 해당 문자열 잘라내서 리턴
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규표현식</title>
+  </head>
+  <body>
+    <h1>Javascript jQeury Ajax</h1>
+    <div>
+      <h4>정규표현식과 일치하는 문자열 리턴</h4>
+      <p id="exec"></p>
+    </div>
+    <div>
+      <h4>정규표현식과 일치하는 문자열이 있으면 true, 없으면 false 리턴</h4>
+      <p id="test"></p>
+    </div>
+    <div>
+      <h4>정규표현식과 일치하는 문자열 리턴</h4>
+      <p id="match"></p>
+    </div>
+    <div>
+      <h4>정규표현식과 일치하는 문자열의 위치 리턴</h4>
+      <p id="search"></p>
+    </div>
+    <script>
+      const h1 = document.querySelector("h1").innerHTML; // <h1> 문자열 가져오기
+
+      // 정규식
+      // const regex = new RegExp("Ajax");
+      const regex = /Ajax/;
+
+      // exec() 결과
+      document.querySelector("#exec").innerHTML = regex.exec(h1);
+
+      // test() 결과
+      document.querySelector("#test").innerHTML = regex.test(h1);
+
+      // match() 결과
+      document.querySelector("#match").innerHTML = h1.match(regex);
+
+      // search() 결과
+      document.querySelector("#search").innerHTML = h1.search(regex);
+    </script>
+  </body>
+</html>

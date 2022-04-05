@@ -1,0 +1,72 @@
+<!--
+    form 태그 안 요소들의 값은 val()로 가지고 옴
+    cf. JavaScript는 .value
+
+    string으로 가져오기 때문에 숫자일 경우 Number()로 감싸주어야 함
+
+    type="button" >> $(":button")
+    type="text" >> $(":text")
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <input type="text" name="num1" id="" />
+        <select name="op" id="">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+          <option value="%">%</option>
+        </select>
+        <input type="text" name="num2" id="" />
+        =
+        <input type="text" name="result" id="" />
+      </div>
+      <input type="button" value="계산" onclick="calc()" />
+    </form>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      function calc() {
+        // num1 값 가져오기
+        let num1 = Number($("[name='num1']").val());
+
+        // num2 값 가져오기
+        let num2 = Number($("[name='num2']").val());
+
+        // op 값 가져오기 (switch)
+        let op = $("[name='op']").val();
+        let result;
+        switch (op) {
+          case "+":
+            result = parseInt(num1) + parseInt(num2);
+            break;
+          case "-":
+            result = parseInt(num1) - parseInt(num2);
+            break;
+          case "*":
+            result = parseInt(num1) * parseInt(num2);
+            break;
+          case "/":
+            result = parseInt(num1) / parseInt(num2);
+            break;
+          case "%":
+            result = parseInt(num1) % parseInt(num2);
+            break;
+        }
+
+        $("[name='result']").val(result);
+      }
+    </script>
+  </body>
+</html>

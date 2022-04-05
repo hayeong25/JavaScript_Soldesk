@@ -1,0 +1,48 @@
+<!--
+    attr() : 속성 추가 또는 변경
+    css() : CSS 스타일 변경
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <h2>클릭하면 사라집니다</h2>
+    <p class="para1">이것은 문단입니다</p>
+    <p id="para2">이것은 두 번째 문단입니다</p>
+    <table>
+      <tr>
+        <td>내용1</td>
+        <td>내용2</td>
+      </tr>
+      <tr>
+        <td>내용3</td>
+        <td>내용4</td>
+      </tr>
+      <tr>
+        <td>내용5</td>
+        <td>내용6</td>
+      </tr>
+      <tr>
+        <td>내용7</td>
+        <td>내용8</td>
+      </tr>
+    </table>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      $("h2, .para1, #para2").click(function () {
+        $(this).css("color", "red");
+      });
+
+      $("tr:even").css("background-color", "#bbf");
+      $("tr:odd").css("background-color", "orange");
+    </script>
+  </body>
+</html>

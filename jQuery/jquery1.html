@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <h1 id="header1">Header1</h1>
+    <h1 id="header2">Header2</h1>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(function () {
+        // header1 태그 가져오기
+        let header1 = $("#header1");
+        console.log(header1);
+
+        // header2의 Text 내용 변경하기
+        // text() : JS의 innerText
+        // html() : JS의 innerHTML
+        let header2 = $("#header2");
+        header2.text("jQuery");
+        header2.html("<i>jQuery</i>");
+        console.log(header2);
+      });
+    </script>
+  </body>
+</html>

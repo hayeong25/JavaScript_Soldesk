@@ -1,0 +1,56 @@
+<!-- attr() : 속성 추가 또는 변경-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <button>Hello World</button>
+    <div>
+      <img src="../object/left-arrow.png" />
+      <input type="button" value="변경" />
+    </div>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      /* --------------- jQuery --------------- */
+      // button 태그 가져와 name, disabled 속성 추가
+      let b1 = $("button");
+      b1.attr("name", "hello");
+      b1.attr("disabled", "");
+
+      let status = true;
+
+      $("[type='button']").click(function () {
+        if (status) {
+          $("img").attr("src", "../object/right-arrow.png");
+          status = false;
+        } else {
+          $("img").attr("src", "../object/left-arrow.png");
+          status = true;
+        }
+      });
+
+      //   $("[type='button']").click(function () {
+      //     if ($("img").attr("src") == "../object/left-arrow.png") {
+      //       $("img").attr("src", "../object/right-arrow.png");
+      //     } else {
+      //       $("img").attr("src", "../object/left-arrow.png");
+      //     }
+      //   });
+
+      /* --------------- JavaScript --------------- */
+      // button 태그에 name 속성 추가
+      let b2 = document.querySelector("button");
+      b2.setAttribute("name", "hello");
+
+      // button 태그에 disabled 속성 추가
+      b2.setAttribute("disabled", "");
+    </script>
+  </body>
+</html>

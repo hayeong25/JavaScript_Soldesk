@@ -1,0 +1,44 @@
+<!--
+    form 태그 안 요소들의 값은 val()로 가지고 옴
+    cf. JavaScript는 .value
+
+    string으로 가져오기 때문에 숫자일 경우 Number()로 감싸주어야 함
+
+    type="button" >> $(":button")
+    type="text" >> $(":text")
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <input type="text" name="num1" id="" />
+        +
+        <input type="text" name="num2" id="" />
+        =
+        <input type="text" name="result" id="" />
+      </div>
+      <input type="button" value="계산" onclick="calc()" />
+    </form>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      $(":button").click(function () {
+        // num1 값 가져오기
+        let num1 = Number($("[name='num1']").val());
+        let num2 = Number($("[name='num2']").val());
+
+        // 연산 후 결과값을 result에 보여주기
+        $("[name='result']").val(num1 + num2);
+      });
+    </script>
+  </body>
+</html>

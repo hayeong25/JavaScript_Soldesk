@@ -1,0 +1,26 @@
+<!-- attr() : 속성 추가 또는 변경-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <div>
+      <img src="../object/left-arrow.png" />
+      <img src="../object/right-arrow.png" style="display: none" />
+      <input type="button" value="변경" />
+    </div>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      $("[type='button']").click(function () {
+        $("img").toggle();
+      });
+    </script>
+  </body>
+</html>

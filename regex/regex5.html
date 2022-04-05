@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규표현식</title>
+    <style>
+      #result {
+        display: none;
+        color: red;
+        margin-top: 0;
+        font-size: 0.8em;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" name="name" placeholder="이름을 입력하세요" />
+    <input type="button" value="보내기" />
+    <p id="result"></p>
+
+    <script>
+      // button 가져오기
+      let btn = document.querySelector("[type='button']");
+
+      // 태그 건드리지 않고 button에 Event 추가하기
+      btn.addEventListener("click", nameCheck);
+
+      // 결과값 보여줄 result 가져오기
+      let result = document.querySelector("#result");
+
+      // name 값 가져오기
+      let name = document.querySelector("[name='name']");
+
+      // name Event 추가 (입력 오류 후 focus 하면 오류 문구와 기존 입력 데이터 지우기)
+      name.addEventListener("focus", function () {
+        // 기존 입력 데이터가 있다면 지우기
+        name.value = "";
+        result.innerHTML = "";
+        result.style.display = "none";
+      });
+
+      // name 입력 값 가져와 이름 형식과 일치하는지 확인
+      function nameCheck() {
+        let regex = /^[가-힣]{2,5}$/;
+
+        if (!regex.test(name.value)) {
+          result.style.display = "block";
+          result.innerHTML = "올바르지 않은 형식입니다. 이름을 확인해주세요";
+        } else {
+          result.style.display = "block";
+          result.innerHTML = "이름이 입력되었습니다.";
+        }
+      }
+    </script>
+  </body>
+</html>

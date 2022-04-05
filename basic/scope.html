@@ -1,0 +1,35 @@
+<!--
+    scope
+    - global : 전역
+    - function : 함수 내
+    - block : 블록 내
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scope</title>
+  </head>
+  <body>
+    <script>
+      // global scope 영역
+      let value = "Hello";
+
+      // function scope 영역
+      function myFunction() {
+        let value = "World";
+        if (true) {
+          // block scope 영역
+          let value = "good morning";
+          console.log(value);
+        }
+        console.log(value);
+      }
+
+      myFunction(); // function 변수인 value 호출하므로 "World"
+      console.log(value); // 전역변수인 value를 호출하므로 "Hello"
+    </script>
+  </body>
+</html>

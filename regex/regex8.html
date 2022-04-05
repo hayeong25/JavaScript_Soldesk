@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규표현식</title>
+  </head>
+  <body>
+    <input type="email" name="email" />
+    <input type="button" value="전송" />
+    <script>
+      // email 정규식
+      const regex =
+        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+      // button 가져오기
+      let button = document.querySelector("[type='button']");
+
+      // 가져온 button에 Event 추가 + 익명 함수
+      button.addEventListener("click", function () {
+        let email = document.querySelector("[name='email']").value;
+
+        // email 정규표현식 충족 여부 확인
+        if (!regex.test(email)) {
+          alert("이메일 형식을 확인해주세요.");
+        } else {
+          alert("전송되었습니다.");
+        }
+      });
+    </script>
+  </body>
+</html>

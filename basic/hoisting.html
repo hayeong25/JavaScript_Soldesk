@@ -1,0 +1,33 @@
+<!--
+    hoisting : 아직 선언되지 않은 함수나 변수를 끌어올려서 호출 및 사용
+    단, 끌어올려 사용할 수 있는 변수는 var만 가능
+    (cf. Java에서는 위에서 아래로만 실행되기 때문에 hoisting 불가)
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoisting</title>
+  </head>
+  <body>
+    <script>
+      // 변수의 hoisting
+      console.log(amount); // undefined : 아직 변수 값이 할당되지 않았을 뿐 언젠간 선언될 테니까 에러는 안 뜨게 함
+
+      // hoisting 하려면 var 변수만 가능
+      // let amount = 10; >> Cannot access 'amount' before initialization
+      var amount = 10;
+
+      console.log("");
+
+      // 함수의 hoisting
+      myFunction();
+
+      function myFunction() {
+        console.log("Hello World!");
+      }
+    </script>
+  </body>
+</html>

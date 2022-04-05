@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규표현식</title>
+  </head>
+  <body>
+    <script>
+      const ko = "kokokoko";
+      const koooo = "kooookoooo";
+
+      console.log(ko.match(/(?:ko)+/)); // 괄호는 쓰지만 캡쳐링 하지 않을 때 ?: 붙임
+      console.log(koooo.match(/(ko)+/));
+
+      console.log("");
+
+      let str = "javascript";
+      const pattern = /(java)(script)/;
+
+      connsole.log("--- 그룹화 및 캡쳐링 --- ");
+      console.log(str.match(pattern));
+      console.log(str.replace(pattern, "$2-$1")); // script-java
+      connsole.log("-------- 그룹화 -------- ");
+      console.log(str.match(/(?:java)(script)/));
+      console.log(str.replace(/(?:java)(script)/, "$2-$1")); // $2-script
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>정규표현식</title>
+  </head>
+  <body>
+    <script>
+      const ko = "kokokoko";
+      const koooo = "kooookoooo";
+
+      console.log(ko.match(/(ko)+/));
+      console.log(koooo.match(/(ko)+/));
+
+      console.log("");
+
+      const re = /(\w+)\s(\w+)/;
+      const str = "John Smith";
+
+      console.log(str.match(re));
+
+      console.log("");
+
+      // 캡쳐링은 묶음으로 처리 가능
+      let newStr = str.replace(re, "$2, $1"); // $2, $1 : 2번 캡쳐링과 1번 캡쳐링 자리 바꾸라는 의미
+
+      console.log(newStr);
+
+      console.log("");
+
+      const input =
+        "Regex pros konw the difference between\n <i>greedy</i> and <i>lazy</i> matching.";
+
+      const pattern = /<i>(.*?)<\/i>/gi;
+
+      console.log("");
+
+      console.log(input.match(pattern));
+      console.log(input.replace(pattern, "<strong>$1<\/string>"));
+    </script>
+  </body>
+</html>

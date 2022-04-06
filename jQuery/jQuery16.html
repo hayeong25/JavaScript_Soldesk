@@ -17,14 +17,8 @@
 
     <div>
       성별
-      <input
-        type="radio"
-        name="gender"
-        value="남"
-        onchange="gender()"
-        checked
-      />남자
-      <input type="radio" name="gender" value="여" onchange="gender()" />여자
+      <input type="radio" name="gender" value="남" checked />남자
+      <input type="radio" name="gender" value="여" />여자
     </div>
 
     <div>
@@ -39,6 +33,7 @@
     <!-- jQuery 사용하기 전 라이브러리 load -->
     <script src="./jquery-3.6.0.min.js"></script>
 
+    <!-- $().change() = JavaScript에서의 onchange="function()" -->
     <script>
       // select 일 때
       $("[name='fruits']").change(function () {

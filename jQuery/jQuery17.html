@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <div>
+      <h1>Simple HTML</h1>
+    </div>
+    <div id="content">
+      <p>This is a <i>simple</i> HTML file</p>
+    </div>
+    <div class="callout">
+      <p>This is as fancy as we'll get!</p>
+    </div>
+    <p>
+      IDs (such as <span class="code">#content</span>) are unique (there can
+      only be one per page).
+    </p>
+    <p>
+      Classes (such as <span class="code">.callout</span>) can be used on many
+      elements
+    </p>
+    <div id="callout2" class="callout fancy">
+      <p>A single HTML element can have multiple classes.</p>
+    </div>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      // element가 추가될 영역 가져오기
+      let content = $("content");
+
+      // p 태그 생성해 HTML 내용 추가하기
+      const p1 = $("<p>I was created dynamically</p>");
+      const p2 = $("<p>I was also created dynamically!</p>");
+
+      // p1은 맨 앞에 p2는 맨 뒤에 삽입
+      content.prepend(p1);
+      content.append(p2);
+    </script>
+  </body>
+</html>

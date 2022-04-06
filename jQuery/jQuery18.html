@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <label>이름</label>
+        <input type="text" name="name" id="name" />
+      </div>
+      <div>
+        <label>비밀번호</label>
+        <input type="password" name="password" id="password" />
+      </div>
+      <div>
+        <label>주소</label>
+        <input type="text" name="address" id="address" />
+      </div>
+      <button type="button" id="modify">내용수정</button>
+      <button type="button" id="read">내용보기</button>
+      <button type="button" id="delete">내용삭제</button>
+    </form>
+
+    <!-- jQuery 사용하기 전 라이브러리 load -->
+    <script src="./jquery-3.6.0.min.js"></script>
+
+    <script>
+      // form 요소 가져오기
+      let form = $("form");
+
+      // modify 버튼 클릭 시 jQuery2.html로 이동 + form 요소 모두 제거하고 전송
+      $("#modify").click(function () {
+        $(form).attr("action", "jQuery2.html");
+        $(form).empty();
+        $(form).submit();
+      });
+
+      // read 버튼 클릭 시 jQuery1.html로 이동 + 이름 요소는 제거하고 전송
+      $("#read").click(function () {
+        $(form).attr("action", "jQuery1.html");
+        $("name").remove();
+        $(form).submit();
+      });
+
+      // delete 버튼 클릭 시 jQuery3.html로 이동 + form 요소 모두 제거하고 새로운 form 요소 추가해 전송
+      $("#delete").click(function () {
+        $(form).attr("action", "jQuery3.html");
+        $(form).empty();
+        $(form).append("<input type='text' name='no' value='3'>");
+        $(form).submit();
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영화진흥위원회 API</title>
+    <link rel="stylesheet" href="movie.css" />
+  </head>
+  <body>
+    <form action="">
+      <div class="box1">일별 박스 오피스</div>
+      <div class="box2">
+        <input type="text" name="txtYear" id="txtYear" size="6" />년
+
+        <select name="" id="selMon">
+          <option value="01">1월</option>
+          <option value="02">2월</option>
+          <option value="03">3월</option>
+          <option value="04">4월</option>
+          <option value="05">5월</option>
+          <option value="06">6월</option>
+          <option value="07">7월</option>
+          <option value="08">8월</option>
+          <option value="09">9월</option>
+          <option value="10">10월</option>
+          <option value="11">11월</option>
+          <option value="12">12월</option>
+        </select>
+
+        <select name="" id="selDay">
+          <option value="01">1일</option>
+          <option value="02">2일</option>
+          <option value="03">3일</option>
+          <option value="04">4일</option>
+          <option value="05">5일</option>
+          <option value="06">6일</option>
+          <option value="07">7일</option>
+          <option value="08">8일</option>
+          <option value="09">9일</option>
+          <option value="10">10일</option>
+          <option value="11">11일</option>
+          <option value="12">12일</option>
+          <option value="13">13일</option>
+          <option value="14">14일</option>
+          <option value="15">15일</option>
+          <option value="16">16일</option>
+          <option value="17">17일</option>
+          <option value="18">18일</option>
+          <option value="19">19일</option>
+          <option value="20">20일</option>
+          <option value="21">21일</option>
+          <option value="22">22일</option>
+          <option value="23">23일</option>
+          <option value="24">24일</option>
+          <option value="25">25일</option>
+          <option value="26">26일</option>
+          <option value="27">27일</option>
+          <option value="28">28일</option>
+          <option value="29">29일</option>
+          <option value="30">30일</option>
+          <option value="31">31일</option>
+        </select>
+
+        <input type="button" value="확인" />
+        <div id="msg"></div>
+
+        <div class="box3"></div>
+      </div>
+    </form>
+
+    <script>
+      function init() {
+        // 오늘 날짜
+        let newDate = new Date();
+        let year = newDate.getFullYear();
+        let month = newDate.getMonth() + 1;
+        let day = newDate.getDate() - 1; // 어제까지의 상영 결과 (오늘 결과는 아직 알 수 없기 때문)
+
+        // 연도, 월, 일 화면에 보여주기
+        if (month < 10) {
+          month = "0" + month;
+        }
+        if (day < 10) {
+          day = "0" + day;
+        }
+        document.querySelector("#txtYear").value = year;
+        document.querySelector("#selMon").value = month;
+        document.querySelector("#selDay").value = day;
+      }
+
+      init();
+
+      // 영화 상세 정보 출력
+      function show(movieCd) {
+        let url =
+          "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=f5eef3421c602c6cb7ea224104795888&movieCd=" +
+          movieCd;
+        console.log(url);
+
+        fetch(url)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            // 원하는 정보만 추출하기 - 영화제목, 영어제목, 상영시간, 감독, 출연배우
+            let result = "";
+            let element = data.movieInfoResult.movieInfo;
+            result +=
+              "<li>영화 제목 : " +
+              element.movieNm +
+              " (" +
+              element.movieNmEn +
+              ")</li>";
+            result += "<li>상영시간 : " + element.showTm + "분</li>";
+            element.directors.forEach((direc) => {
+              result +=
+                "<li>감독 : " +
+                direc.peopleNm +
+                " (" +
+                direc.peopleNmEn +
+                ")</li>";
+            });
+            element.actors.forEach((act) => {
+              result +=
+                "<li>배우 : " + act.peopleNm + " (" + act.peopleNmEn + ")";
+              result += " - " + act.cast + "役</li>";
+            });
+
+            document.querySelector(".box3").innerHTML = result;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      // 영화 리스트
+      function getMovieInfo() {
+        let year = document.querySelector("#txtYear").value;
+        let month = document.querySelector("#selMon").value;
+        let day = document.querySelector("#selDay").value;
+        let url =
+          "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=";
+        url += year + month + day;
+        console.log(url);
+
+        fetch(url)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            // 도착한 JSON을 원하는 형태로 작성
+            console.log(data);
+
+            let str = "";
+            data.boxOfficeResult.dailyBoxOfficeList.forEach((element) => {
+              // 순위 rank
+              str += element.rank + "위";
+
+              // 증감 rankInten
+              let rankInten = element.rankInten;
+
+              if (rankInten > 0) {
+                str = str + "(▲";
+              } else if (rankInten < 0) {
+                str = str + "(▼";
+              } else {
+                str = str + "( ";
+              }
+
+              str = str + rankInten + ") : ";
+
+              // 영화코드
+              str +=
+                "<a href='#' onclick='javascript:show(" +
+                element.movieCd +
+                ")'>";
+
+              // 영화명 movieNm
+              str = str + element.movieNm + "</a><br>";
+            });
+
+            document.querySelector("#msg").innerHTML = str;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      // 확인 버튼 가져온 후 이벤트 연결
+      document
+        .querySelector("[type='button']")
+        .addEventListener("click", getMovieInfo);
+    </script>
+  </body>
+</html>

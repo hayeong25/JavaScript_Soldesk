@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      // 외부에서 제공하는 JSON 파일 불러오기
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json())
+        .then((json) => {
+          let result = "";
+          json.forEach((element) => {
+            result += "<ul><li>id : " + element.id + "</li>";
+            result += "<li>name : " + element.name + "</li>";
+            result += "<li>username : " + element.username + "</li>";
+            result += "<li>email : " + element.email + "</li>";
+            result +=
+              "<li>address.street : " + element.address.street + "</li>";
+            result += "<li>address.suite : " + element.address.suite + "</li>";
+            result += "<li>address.city : " + element.address.city + "</li>";
+            result +=
+              "<li>address.zipcode : " + element.address.zipcode + "</li>";
+            result +=
+              "<li>address.geo.lat : " + element.address.geo.lat + "</li>";
+            result +=
+              "<li>address.geo.lng : " + element.address.geo.lng + "</li>";
+            result += "<li>phone : " + element.phone + "</li>";
+            result += "<li>website : " + element.website + "</li>";
+            result += "<li>company.name : " + element.company.name + "</li>";
+            result +=
+              "<li>company.catchPhrase : " +
+              element.company.catchPhrase +
+              "</li>";
+            result += "<li>company.bs : " + element.company.bs + "</li></ul>";
+          });
+
+          document.querySelector("div").innerHTML = result;
+        });
+    </script>
+  </body>
+</html>

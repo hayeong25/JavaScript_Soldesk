@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      // 외부에서 제공하는 JSON 파일 불러오기
+      fetch("https://jsonplaceholder.typicode.com/todos/1")
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json);
+          let result = "<ul><li>userId : " + json.userId + "</li>";
+          result += "<li>id : " + json.id + "</li>";
+          result += "<li>title : " + json.title + "</li>";
+          result += "<li>completed : " + json.completed + "</li>";
+
+          document.querySelector("div").innerHTML = result;
+        });
+    </script>
+  </body>
+</html>

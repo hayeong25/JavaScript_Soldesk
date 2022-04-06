@@ -1,0 +1,37 @@
+<!--
+    fetch() : 비동기 형태로 동작하는 함수
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax</title>
+  </head>
+  <body>
+    <div></div>
+
+    <script>
+      // fetch()
+      fetch("./data/test.txt")
+        // function()
+        .then((response) => {
+          console.log("1");
+          return response.text(); // test.txt의 내용이 text 형태이기 때문에 text() 함수 사용
+        })
+        // function()
+        .then((result) => {
+          console.log(result);
+          let div = document.querySelector("div");
+          div.innerHTML = result;
+        })
+        .catch((error) => {
+          // error가 났을 경우 (Java에서의 try~catch)
+          console.log(error);
+        });
+
+      console.log("2"); // 1보다 2가 먼저 나옴 => 비동기
+    </script>
+  </body>
+</html>

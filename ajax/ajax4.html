@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax</title>
+    <style>
+      .container {
+        display: flex;
+        background-color: lightblue;
+      }
+      .box {
+        width: 100px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">메뉴1</div>
+      <div class="box">메뉴2</div>
+      <div class="box">메뉴3</div>
+      <div class="box">메뉴4</div>
+    </div>
+    <div id="content"></div>
+
+    <script>
+      let lastDiv = document
+        .querySelector(".container div:last-child")
+        .addEventListener("click", getJson);
+
+      function getJson() {
+        fetch("./data/data1.json")
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            console.log(result);
+            // 받아오는 파일이 JSON 파일이므로 JSON으로 바꾸는 파싱 과정을 거치지 않아도 됨
+            // let response = JSON.parse(result);
+            let resText = "<ul><li>" + result.version + "</li>";
+            resText += "<li>" + result.codename + "</li></ul>";
+            document.getElementById("content").innerHTML = resText;
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    </script>
+  </body>
+</html>

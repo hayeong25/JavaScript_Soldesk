@@ -1,0 +1,32 @@
+<!-- jQuery로 외부 JSON 파일 가져오기 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Ajax</title>
+  </head>
+  <body>
+    <div></div>
+
+    <!-- jQuery 라이브러리 -->
+    <script src="../jQuery/jquery-3.6.0.min.js"></script>
+
+    <!-- Ajax에서의 fetch().then().then().catch()-->
+    <script>
+      $.getJSON({
+        url: "https://jsonplaceholder.typicode.com/todos/1",
+        success: function(data) {
+          let result = "<ul><li>userId : " + data.userId + "</li>";
+          result += "<li>id : " + data.id + "</li>";
+          result += "<li>title : " + data.title + "</li>";
+          result += "<li>completed : " + data.completed + "</li>";
+
+          $("div").html(result);
+        }
+      })
+    </script>
+    </script>
+  </body>
+</html>

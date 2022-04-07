@@ -1,0 +1,38 @@
+<!--
+    jQuery로 Ajax에서의 fetch(url) 구현하기
+
+    비동기식으로 동작하는 function은 나중에 불려짐
+    >> 브라우저에 요청 보낼 것을 fetch()가 기억해두었다가 서버가 응답하는 결과에 따라 진행
+    >> 제대로 응답하는지 어떤지가 브라우저 상태코드에 입력됨
+    >> 200~300번대 : OK
+    >> 400~500번대 : Error (보여지지 않거나 서버 에러인 경우)
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Ajax</title>
+  </head>
+  <body>
+    <!-- jQuery 라이브러리 -->
+    <script src="../jQuery/jquery-3.6.0.min.js"></script>
+
+    <!-- Ajax에서의 fetch().then().then().catch()-->
+    <script>
+      $.ajax({
+        url: "",
+        type: "get", // 모든 요청의 기본 타입은 get
+        data: formData, // 전송할 데이터 담기
+        dataType: "요청 데이터 타입", // 요청한 데이터 타입 (HTML, text, JSON, XML)
+        success: function (data) {
+          // 서버로부터 요청한 결과가 도착하면 호출
+        },
+        error: function () {
+          // 서버가 잘못된 응답을 하거나 응답을 하지 않는 경우 (서버가 응답을 제대로 한 경우에는 F12 Network 상태코드에 '200' 출력됨)
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -181,9 +181,11 @@
                 ")</li>";
             });
             element.actors.forEach((act) => {
-              result +=
-                "<li>배우 : " + act.peopleNm + " (" + act.peopleNmEn + ")";
-              result += " - " + act.cast + "役</li>";
+              if (act.cast != null) {
+                result +=
+                  "<li>배우 : " + act.peopleNm + " (" + act.peopleNmEn + ")";
+                result += " - " + act.cast + "役</li>";
+              }
             });
 
             document.querySelector(".box3").innerHTML = result;

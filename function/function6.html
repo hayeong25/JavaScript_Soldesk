@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		/*
+			문자를 유니코드 값으로 인코딩 해주는 내장 함수
+			encodeURI() : 영어, 특수문자, 숫자 제외
+			encodeURIComponent() : 영어, 숫자 제외
+			
+			인코딩 된 문자를 원래대로 되돌리는 함수
+			decodeURI()
+			decodeURIComponent()
+		*/
+		document.write(encodeURI("http://localhost:8080/basic/info.html?name=홍길동&age=15"));
+		document.write("<br>");
+		document.write(encodeURIComponent("http://localhost:8080/basic/info.html?name=홍길동&age=15"));
+		document.write("<br>");
+		document.write(decodeURI());
+		document.write("<br>");
+		document.write(decodURIComponent());
+	</script>
+</body>
+</html>
